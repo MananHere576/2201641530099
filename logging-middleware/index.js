@@ -1,0 +1,7 @@
+require('dotenv').config()
+const express=require('express')
+const app=express()
+app.use(express.json())
+app.use(require('./logging-middleware')())
+app.post('/test',(r,s)=>s.json({ok:1}))
+app.listen(3000,()=>console.log('Server running on 3000'))
